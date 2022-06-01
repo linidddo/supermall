@@ -1,4 +1,21 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true
-})
+const path = require('path')// 引入path模块
+function resolve (dir) {
+  return path.join(__dirname, dir)// path.join(__dirname)设置绝对路径
+}
+module.exports = {
+  chainWebpack: (config) => {
+    // 给路径起别名
+    config.resolve.alias
+      .set('@', resolve('./src'))
+      .set('components', resolve('src/components'))
+      .set('views', resolve('src/views'))
+      .set('network', resolve('src/network'))
+      .set('common', resolve('src/common'))
+      .set('store', resolve('src/store'))
+      .set('assets', resolve('src/assets'))
+    
+    // .set('设置的别名',resolve('设置的路径'))
+  },
+
+  lintOnSave: false
+}
