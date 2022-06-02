@@ -10,7 +10,6 @@
       class="tab-control"
       :titles="['流行', '新款', '精选']"
     ></tab-control>
-   
   </div>
 </template>
 
@@ -22,7 +21,7 @@ import HomeSwiper from "./childComps/HomeSwiper.vue";
 import RecommendView from "./childComps/RecommendView.vue";
 import FeatureView from "./childComps/FeatureView.vue";
 
-import { getHomeNultidata,getHomeGoods } from "network/home";
+import { getHomeNultidata, getHomeGoods } from "network/home";
 
 export default {
   name: "Home",
@@ -38,11 +37,11 @@ export default {
     return {
       banners: [],
       recommends: [],
-      goods:{
-        'pop':{page:0,list:[]},
-        'news':{page:0,list:[]},
-        'sell':{page:0,list:[]},
-      }
+      goods: {
+        pop: { page: 0, list: [] },
+        news: { page: 0, list: [] },
+        sell: { page: 0, list: [] },
+      },
     };
   },
   // 在组件创建完成后发送网络请求
@@ -55,9 +54,9 @@ export default {
       // console.log(this.recommends);
     });
     // 2.请求商品数据
-    getHomeGoods('pop',1).then(res =>{
+    getHomeGoods("pop", 1).then((res) => {
       console.log(res);
-    })
+    });
   },
 };
 </script>

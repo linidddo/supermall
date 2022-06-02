@@ -6,12 +6,13 @@ export function getHomeNultidata() {
   })
 }
 
-export function getHomeGoods() {
+export function getHomeGoods(type,page) {
   // recommendview
   return request({
     url: '/home/data',
     params: {
-      
+      type,
+      page
     }
   })
 }
