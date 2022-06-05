@@ -25,9 +25,10 @@ export default {
     };
   },
   methods:{
+    // 点击
     itemClick(index){
       this.currentIndex = index;
-
+      this.$emit('tabClick',index)
     }
   }
 };
@@ -37,6 +38,7 @@ export default {
     display: flex;
     text-align: center;
     font-size: 16px;
+    background-color: #fff;
   }
   .tab-control-item{
     flex:1;
