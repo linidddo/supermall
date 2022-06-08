@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-    <img :src="goodsItem.show.img" alt="" />
+  <div class="goods-item" @itemClick="itemClick">
+    <img :src="goodsItem.show.img" alt="" @load="imageLoad" />
     <div class="goods-info">
       <p>{{ goodsItem.title }}</p>
       <span class="price">￥{{ goodsItem.price }}</span>
@@ -18,6 +18,14 @@ export default {
       default() {
         return {};
       },
+    },
+  },
+  methods: {
+    imageLoad() {
+      this.$bus.$emit("itemImageLoad");
+    },
+    itemClick() {
+      console.log("跳转到详情页");
     },
   },
 };
@@ -58,7 +66,7 @@ export default {
   position: relative;
 }
 
-.goods-info .collect::before { 
+.goods-info .collect::before {
   content: "";
   position: absolute;
   left: -16px;
