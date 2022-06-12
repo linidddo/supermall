@@ -29,6 +29,7 @@ export default {
   computed: {
     isActive(){
       console.log(this.$route.path);
+      //如果要检索的字符串值没有出现，则该方法返回 -1。
       return this.$route.path.indexOf(this.path) !== -1;
     },
     activeStyle(){
